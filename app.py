@@ -6,6 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 # ChromeDriverManager automatically fetches the most recent version of chrome webdriver and installs it
 from webdriver_manager.chrome import ChromeDriverManager
+# Importing By functionality to use when finding elements with driver
+from selenium.webdriver.common.by import By
 
 #Function that configures and initializes the instance of chrome webdriver, options and service behavior defined above
 def chromeDriverInit():
@@ -16,5 +18,16 @@ def chromeDriverInit():
     driver.get("http://www.google.com")
     driver.title # Receiving info from the browser on the website title, property so no ()
     driver.implicitly_wait(0.5) # Waiting 0.5 seconds for the element to be available - better ways to handle waiting. Syncs code w/ webpage contents
-    # Session end
+    # Finding search box and search button elements
+    search_box = driver.find_element(By.NAME, "q")
+    search_button = driver.find_element(By.NAME, "btnK")
+    # Taking action on found elements
+    search_box.send_keys("Selenium")
+    search_button.click()
+    # Requesting information from search box and refinding search box because the DOM has changed since we first located it
+    driver.find_element(By.NAME, "q").get_attribute("value")
+    # Session end. When driver process ends, by default the browser closes as well.
+    # No more commands can be sent to the driver instance.
     driver.quit()
+
+chromeDriverInit()
