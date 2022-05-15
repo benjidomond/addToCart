@@ -60,7 +60,5 @@ def getMomRoses():
     relationshipSelectObject = Select(relationshipSelect)
     # Picking Mom
     relationshipSelectObject.select_by_visible_text("Mom")
-    # Lastly, checkout!
-    driver.find_element(By.CLASS_NAME, "bolt-checkout-button").click()
     driver.quit()
 getMomRoses()
