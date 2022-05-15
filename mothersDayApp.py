@@ -39,5 +39,11 @@ def getMomRoses():
     deliveryDateObject = Select(deliveryDateSelect)
     # Selects the earliest available date to get the flowers!
     deliveryDateObject.select_by_index(1)
+    # Selecting the quantity of Roses
+    driver.find_element(By.ID, "cyq-qty-input").send_keys("value", "3")
+    # Picking the location of the pink selector and clicking it
+    driver.find_element(By.CSS_SELECTOR, "[aria-label='pink']").click()
+    # Adding flowers to cart
+    driver.find_element(By.ID, "topA2C").click()
     driver.quit()
 getMomRoses()
