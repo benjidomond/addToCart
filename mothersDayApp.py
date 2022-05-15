@@ -33,9 +33,11 @@ def getMomRoses():
     roseLink = WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, 'div#qty-roses > div.flag > a')))
     # qty roses div id -> div with class flag -> a tag to access qty roses
     roseLink.click()
-    #Explicit wait until span ID earliestdate is fully visible
-    #WebDriverWait(driver, timeout = 20).until(expected_conditions.visibility_of((By.ID, "earliestDate")))
-    #deliveryDateSelect = driver.find_element(By.ID, "selectdate")
-    #deliveryDateObject = Select(deliveryDateSelect)
+    # Implicit wait is your best solution to make sure that the calendar gets the right dates and shipping time, selecting span difficult
+    driver.implicitly_wait(0.5)
+    deliveryDateSelect = driver.find_element(By.ID, "selectdate")
+    deliveryDateObject = Select(deliveryDateSelect)
+    # Selects the earliest available date to get the flowers!
+    deliveryDateObject.select_by_index(1)
     driver.quit()
 getMomRoses()
