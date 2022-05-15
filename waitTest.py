@@ -78,3 +78,4 @@ getStoreFront()
     # poll_frequency = 1
 # as well as the ignored exception(s) that you'd like to include. if you include multiple exceptions you'd like to ignore, it's done as an iterable bracket [] structure
 # By default, the polling frequency (sleep interval between calls) is 0.5 seconds
+# Lastly, utilize until with your fluent waits! (Just like explicit)
