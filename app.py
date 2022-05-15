@@ -37,3 +37,9 @@ chromeDriverInit()
 # As soon as the object or element is found, the action will be performed. It won't wait the full second duration unless necessary!
 # Polling interval is 500ms, it'll keep polling every 500ms until the max second duration is reached
 # By default, implicit wait set to 0 seconds (disabled)
+# The implicit wait is applied to each action following it after it's set until the driver performs close() and quit()
+
+# Important note on explicit waits
+# Explicit waits are used to make webdriver wait until a certain condition is true to perform a task
+# Must import WebDriverWait class to access
+# from selenium.webdriver.support.ui import WebDriverWait
