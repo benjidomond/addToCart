@@ -45,5 +45,22 @@ def getMomRoses():
     driver.find_element(By.CSS_SELECTOR, "[aria-label='pink']").click()
     # Adding flowers to cart
     driver.find_element(By.ID, "topA2C").click()
+    # Filling out cart data
+    # Gift Message
+    driver.find_element(By.NAME, "addendum").send_keys("Sending all my love to the best Mom ever!")
+    # Signature
+    driver.find_element(By.NAME, "signature").send_keys("Your favorite son, Benji")
+    # Occasion Select
+    occasionSelect = driver.find_element(By.NAME, "occasion")
+    occasionSelectObject = Select(occasionSelect)
+    # Picking Mother's Day as the occasion
+    occasionSelectObject.select_by_visible_text("Mother's Day")
+    # Relationship Select
+    relationshipSelect = driver.find_element(By.NAME, "relationship")
+    relationshipSelectObject = Select(relationshipSelect)
+    # Picking Mom
+    relationshipSelectObject.select_by_visible_text("Mom")
+    # Lastly, checkout!
+    driver.find_element(By.CLASS_NAME, "bolt-checkout-button").click()
     driver.quit()
 getMomRoses()
