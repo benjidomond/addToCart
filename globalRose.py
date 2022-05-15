@@ -8,16 +8,24 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 # Importing By functionality to use when finding elements with driver
 from selenium.webdriver.common.by import By
+# Importing the Keys class to use keys such as tab, enter, escape, etc. within webdriver
+from selenium.webdriver.common.keys import Keys
 
-#Configure and initializes the instance of chrome webdriver, options and service behavior defined above
+# Configure and initializes the instance of chrome webdriver, options and service behavior defined above
 chrome_options = Options()
 # Session start
 driver = webdriver.Chrome(options = chrome_options, service=Service(ChromeDriverManager().install()))
 
 # Function to access webpage
 def getStoreFront():
-    driver.get("https://www.globalrose.com")
+    # Important note on implicit waits
+    # Second duration argument is the max amount of time the driver will wait to find your element or object
+    # As soon as the object or element is found, the action will be performed. It won't wait the full second duration unless necessary!
+    # Polling interval is 500ms, it'll keep polling every 500ms until the max second duration is reached
+    driver.implicitly_wait(5)
+    driver.get("https://www.google.com")
+    driver.find_element(By.NAME, "q").send_keys("automation step by step" + Keys.ENTER)
+    driver.close()
     driver.quit()
-    
-#Calling getStoreFront to access the main page
+# Calling getStoreFront to access the main page
 getStoreFront()

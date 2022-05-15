@@ -8,12 +8,12 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 # Importing By functionality to use when finding elements with driver
 from selenium.webdriver.common.by import By
-#Importing the Keys class to use keys such as tab, enter, escape, etc. within webdriver
+# Importing the Keys class to use keys such as tab, enter, escape, etc. within webdriver
 from selenium.webdriver.common.keys import Keys
-#Importing the Select class to create an object that references select elements
+# Importing the Select class to create an object that references select elements
 from selenium.webdriver.support.select import Select
 
-#Function that configures and initializes the instance of chrome webdriver, options and service behavior defined above
+# Function that configures and initializes the instance of chrome webdriver, options and service behavior defined above
 def chromeDriverInit():
     chrome_Options = Options()
     # Session start

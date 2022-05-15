@@ -31,3 +31,9 @@ def chromeDriverInit():
     driver.quit()
 
 chromeDriverInit()
+
+# Important note on implicit waits
+# Second duration argument is the max amount of time the driver will wait to find your element or object
+# As soon as the object or element is found, the action will be performed. It won't wait the full second duration unless necessary!
+# Polling interval is 500ms, it'll keep polling every 500ms until the max second duration is reached
+# By default, implicit wait set to 0 seconds (disabled)
